@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Compound interest </title>
+        <!--<link rel="stylesheet" type="text/css" href="interest.css">-->
+        <style>
+            body{background-color:#99f;}
+            .wrapper {padding:20px; }
+            h1{text-align:center;font-size: 50px;font-style:normal;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
+                Geneva, Verdana, sans-serif;}
+            .form {margin: 0 auto;width: 40%;border:2px solid #fff;}
+            .label{ font-size: large; margin: 0 30px; border-radius: 20px;}
+            /**.center{ margin: 0 auto; width:173px}**/
+
+            </style>
+        
+    </head>
+    
+    <body>
+        <div class="wrapper">
+            <h1>Compound Interest Calculator</h1>
+            <div class="form"> 
+            <div class="center"><form>
+            <label>Principal</label>
+    
+            <input placeholder="Principal" id= "principal" type="number"><br>
+            <label>Rate</label>
+        
+            <input placeholder="Rate" id="rate" type="number"><br>
+            <label>Time</label>
+            
+            <input placeholder="Time" id="time" type="number"><br>
+            <label>Number</label>
+        
+            <input placeholder="Number" id="n umber" type="number"><br><br>
+
+    
+            <!--<Input type="submit" name="calculate" value="Calculate">-->
+
+                
+                <button onclick="compoundinterest()">Calculate</button>
+            <span id="result"></span>
+    
+        </form>
+        </div>
+        </div>
+    </div>
+    <script>
+        function compoundinterest(){
+            const principal= document.getElementById("principal").value;
+            const rate= document.getElementById("rate").value;
+            const time= document.getElementById("time").value;
+            const number= document.getElementById("number").value;
+
+            const n=number/time;
+            const r=rate/number;
+            const Compound = principal*((1+r)**n);
+            document.getElementById("result").innerHTML=Compound;
+
+
+
+
+        }
+    </script>
+
+    </body>
+</html>
