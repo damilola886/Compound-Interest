@@ -4,14 +4,36 @@
         <title> Compound interest </title>
         <!--<link rel="stylesheet" type="text/css" href="interest.css">-->
         <style>
-            body{background-color:#99f;}
+            body{background-color:#607d8b;}
             .wrapper {padding:20px; }
             h1{text-align:center;font-size: 50px;font-style:normal;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
                 Geneva, Verdana, sans-serif;}
-            .form {margin: 0 auto;width: 40%;border:2px solid #fff;}
+            h2{text-align: center;font-family:'Lucida Sans', 'Lucida Sans Regular', 
+            'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-style: normal;}
+            .form {margin: 0 auto;width: 30%;border:2px solid #222; padding:30px; 
+                background-color:white;border-radius: 30px;margin-top: 40px; padding-top: 30px;
+                box-shadow: 10px 15px 15px #0d3142;}
             .label{ font-size: large; margin: 0 30px; border-radius: 20px;}
-            /**.center{ margin: 0 auto; width:173px}**/
+            
+    
+            .center{width:481px;padding:20px; margin: 0 auto;}
+            .row {font-size:25px;}
+            input{ width:70%;height:22%; 
+                font-size: 70%;}
+            button{
+                cursor: pointer;
+                margin-left: 45%;
+                width: 150px;
+                height: 50px;
+                font-size: 25px;
+                background-color:#222;
+                color: beige; 
+                border-radius: 10px;
+            }
+
+        
+            
 
             </style>
         
@@ -20,27 +42,49 @@
     <body>
         <div class="wrapper">
             <h1>Compound Interest Calculator</h1>
+            <h2>Enter the Values in the Boxes Provided</h2>
             <div class="form"> 
             <div class="center"><form>
+
+
+        <div class="row">
             <label>Principal</label>
-    
-            <input placeholder="Principal" id= "principal" type="number"><br>
-            <label>Rate</label>
+            <div class="input">
         
-            <input placeholder="Rate" id="rate" type="number"><br>
+                <input placeholder=" Enter the Principal" id= "principal" type="number"><br>
+            </div>
+        
+         </div>
+
+        <div class="row">
+             <label>Rate</label>
+             <div class="input">
+                <input placeholder=" Enter the Rate" id="rate" type="number"><br>
+            </div>
+        </div>
+
+        <div class="row">
             <label>Time</label>
-            
-            <input placeholder="Time" id="time" type="number"><br>
+            <div class="input">
+                <input placeholder="Enter the Time" id="time" type="number"><br>
+        </div> 
+        </div>
+
+    
+        <div class="row">
             <label>Number</label>
-        
-            <input placeholder="Number" id="n umber" type="number"><br><br>
+            <div class="input">
+                <input placeholder="Enter the Number" id="number" type="number"><br><br>
+            </div>
+        </div>
 
     
             <!--<Input type="submit" name="calculate" value="Calculate">-->
 
                 
-                <button onclick="compoundinterest()">Calculate</button>
-            <span id="result"></span>
+                <button onclick=" compoundinterest(); return false; ">Calculate</button><br>
+
+            <span id="result" style="font-size:22px"></span>
     
         </form>
         </div>
@@ -48,20 +92,35 @@
     </div>
     <script>
         function compoundinterest(){
-            const principal= document.getElementById("principal").value;
-            const rate= document.getElementById("rate").value;
-            const time= document.getElementById("time").value;
-            const number= document.getElementById("number").value;
+            let principal= document.getElementById("principal").value;
+            let rate= document.getElementById("rate").value;
+            let time= document.getElementById("time").value;
+            let number= document.getElementById("number").value;
+            
 
-            const n=number/time;
-            const r=rate/number;
-            const Compound = principal*((1+r)**n);
-            document.getElementById("result").innerHTML=Compound;
+            // principal = Number(principal);
+            // //rate= Number(rate);
+            // time = Number(time);
+            // number = Number(number);
+            rate=rate/100;
+
+
+
+
+            const n=number*time;
+            const r= 1 + rate/number;
+            let Compound = principal*(r**n);
+            Compound= Compound.toFixed(2);
+            document.getElementById("result").innerHTML= `<br> The compound interest is &#8358;${Compound}`;
+           
+          
+
 
 
 
 
         }
+
     </script>
 
     </body>
